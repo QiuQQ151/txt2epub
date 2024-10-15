@@ -7,13 +7,13 @@
 
 
 
-// 定义链表节点
-typedef struct Article {
-    char* num;                 // 文章标号
-    char* title;               // 存储文章标题
-    char* content;             // 存储文章内容
-    struct Article *next;      // 指向下一个节点的指针
-} Article;
+// // 定义链表节点
+// typedef struct Article {
+//     char* num;                 // 文章标号
+//     char* title;               // 存储文章标题
+//     char* content;             // 存储文章内容
+//     struct Article *next;      // 指向下一个节点的指针
+// } Article;
 
 /*
 // 根据txt建立链表结构
@@ -25,20 +25,136 @@ txt内容数组
 struct Article * buil_article_list(char* txt_content )
 {   
     // 链表头
-    Article* head;
-    head =( Article* )malloc( sizeof(Article) ); 
+    struct Article* head = NULL;
+    struct Article* pass = NULL;
+    struct Article* now = NULL;
+    struct Article* next = NULL;
+    head =( struct Article* )malloc( sizeof( struct Article) );
+    head->next = NULL; 
+    now = head;
+    next = now;
     // txt内容定位
-    long tiltle_left = 0;
-    long tiltle_right = 0;
-    long content_left = 0;
-    long content_right = 0;
+    char* tiltle_left = strstr(txt_content,"<标题:");
+    if( tiltle_left == NULL ){
+        printf("部分内容缺失，链表创建结束\n");
+        return NULL ;  // 错误返回
+    }
+    tiltle_left += sizeof("<标题:") - 1; //跳过标签
+
+    char* tiltle_right  ;
+    char* content_left  ;
+    char* content_right ;
     
     // 开始建立链表
-    
+    int i = 41;
+    while( 1 )
+    {  
+       // 标题右侧地址更新
+       tiltle_right = strstr(tiltle_left,">"); 
+        if( tiltle_right == NULL ){
+            // 撤销当前节点
+            pass->next = NULL; // 切断连接
+            now = pass;
+            free(next); // 释放资源
+            printf("部分内容缺失，链表创建结束\n");
+            return NULL ;  // 错误返回
+        }
+       // 正文左侧地址更新
+       content_left = strstr( tiltle_right, "\n" );
+        if( content_left == NULL ){
+            // 撤销当前节点
+            pass->next = NULL; // 切断连接
+            now = pass;
+            free(next); // 释放资源
+            printf("部分内容缺失，链表创建结束\n");
+            return NULL ;  // 错误返回
+        }       
+       content_left += 1; // 跳过\n
+       // 正文右侧地址更新
+       content_right = strstr( content_left, "<end>" );
+        if( content_left == NULL ){
+            // 撤销当前节点
+            pass->next = NULL; // 切断连接
+            now = pass;
+            free(next); // 释放资源
+            printf("部分内容缺失，链表创建结束\n");
+            return NULL ;  // 错误返回
+        }      
+       
+   
+       // 写入链表  //注意强制改为'\0'会导致的提前结束问题
+       now->title = (char*)malloc( sizeof(char)*(tiltle_right - tiltle_left +1) );
+       if( now->title == NULL ){
+            // 撤销当前节点
+            pass->next = NULL; // 切断连接
+            now = pass;
+            free(next); // 释放资源
+            printf("内存分配失败，链表创建结束\n");
+            return NULL ;  // 错误返回
+       }
+       now->title[0] = '\0';   // 还有没有别的办法？
+       *(tiltle_right) = '\0'; //修改方便字符串复制
+       strcat(now->title, tiltle_left );
+       //printf("标题:%s\n",now->title);
+
+       now->content = (char*)malloc( sizeof(char)*(content_right - content_left +1) );
+       if( now->content == NULL ){
+            // 撤销当前节点
+            pass->next = NULL; // 切断连接
+            now = pass;
+            free(next); // 释放资源
+            printf("内存分配失败，链表创建结束\n");
+            return NULL ;  // 错误返回
+       }
+       now->content[0] = '\0';
+       *(content_right) = '\0';   //  *(content_right+1) = '\0';   越界？
+       strcat(now->content, content_left );
 
 
+       // 更新标题左侧地址
+        tiltle_left = strstr(content_right + 3,"<标题:"); // 注意跳过'\0' 
+        if( tiltle_left == NULL ){
+            // 已无新的内容
+            printf("链表创建结束\n");
+            return head ;  // 结束返回
+        }   
+        tiltle_left += sizeof("<标题:") -1;
+        // 建立新节点
+        next = (struct Article*)malloc( sizeof( struct Article ) );
+        next->next = NULL;
+        now->next = next;  // 建立连接
+        pass = now;  // 记录上一个节点
+        now = next;   // 切换
+    }
 }
 
+/*
+// 释放链表资源
+*/
+void free_article_list( struct Article* head )
+{
+   struct Article* now = head;
+   struct Article* next = now->next;
+   printf("开始释放链表\n");
+   int i=0;
+   while( 1 )
+   {
+        //printf("释放节点%d\n",i++);
+        // 记录下个节点地址
+        next = now->next; 
+        // 释放当前节点资源
+        //free(now->num);
+        //free(now->title);
+        //free(now->content);
+        //free(now);
+        now = next; // 切换到下一个节点操作
+        if( now == NULL ){
+            printf("链表释放结束\n");
+            return;
+        }
+           
+   }
+}
 
 
 /*
