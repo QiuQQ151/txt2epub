@@ -34,12 +34,14 @@ int content_opf_create( struct Article* head,  FILE* log )
     fputs("<dc:title>每日新华日报</dc:title>\n",content_opf_fp);
     fputs("<dc:creator>QQQ制作</dc:creator>\n",content_opf_fp);
     fputs("<dc:language>zh</dc:language>\n",content_opf_fp);
-    fputs("<dc:identifier id=\"BookID\">urn:uuid:12345</dc:identifier>\n</metadata>\n",content_opf_fp);
+    fputs("<dc:identifier id=\"BookID\">urn:uuid:12345</dc:identifier>\n",content_opf_fp);
+    fputs("<meta name=\"cover\" content=\"cover-image\"/>\n</metadata>\n",content_opf_fp);
 
     struct Article* now = head;
     struct Article* next;
     // 写入manifest
     fputs("<manifest>\n<item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n",content_opf_fp);
+    // 正文
     while( now->next != NULL )
     {
        fputs("<item id=\"chapter",content_opf_fp);
@@ -47,6 +49,21 @@ int content_opf_create( struct Article* head,  FILE* log )
        fputs("\" href=\"chapter",content_opf_fp);
        fputs(now->num,content_opf_fp);
        fputs(".html\" media-type=\"application/xhtml+xml\"/>\n",content_opf_fp);
+       next = now->next;
+       now = next;
+    }
+    // 图片 <item id="image1" href="images/image1.jpg" media-type="image/jpeg"/>
+    now = head;
+    while( now->next != NULL )
+    {
+       if( now->jpg[0] != 'n' ){
+         //有配图
+            fputs("<item id=\"image",content_opf_fp);
+            fputs(now->num,content_opf_fp);
+            fputs("\" href=\"images/",content_opf_fp);
+            fputs(now->jpg,content_opf_fp);
+            fputs("\" media-type=\"aimage/jpeg\"/>\n",content_opf_fp);         
+       }
        next = now->next;
        now = next;
     }
@@ -63,7 +80,10 @@ int content_opf_create( struct Article* head,  FILE* log )
        next = now->next;
        now = next;
     }
-    fputs("</spine>\n</package>\n",content_opf_fp);
+    fputs("</spine>\n",content_opf_fp);
+    fputs("<guide>\n<reference type=\"cover\" title=\"Cover\" href=\"cover.jpg\"/>\n</guide>\n",content_opf_fp);
+    fputs("</package>\n",content_opf_fp);
+
     fclose(content_opf_fp);
     return 0;
 }
@@ -159,10 +179,18 @@ int chapter_create( struct Article* head, FILE* log )
         fputs("</head>\n",chapter_html_fp);
 
         fputs("<body>\n",chapter_html_fp);
+        // 标题
         fputs("<h1>",chapter_html_fp);
         fputs(now->title,chapter_html_fp);
         fputs("</h1>\n",chapter_html_fp);
-
+        // 图片 <p><img src="images/example.jpg" alt="示例图片" /></p>
+        if( now->jpg[0] != 'n'){
+            // 有图片
+            fputs("<img src=\"images/",chapter_html_fp);
+            fputs(now->jpg,chapter_html_fp);
+            fputs("\" alt=\"图\" />\n",chapter_html_fp);            
+        }
+        // 正文
         fputs("<p>\u3000\u3000",chapter_html_fp);
         // 增加换行符
         char* content_left = now->content;
@@ -217,22 +245,48 @@ struct Article * buil_article_list(char* txt_content )
     head->next = NULL; 
     now = head;
     next = now;
-    // txt内容定位
-    char* tiltle_left = strstr(txt_content,"<标题:");
-    if( tiltle_left == NULL ){
-        printf("部分内容缺失，链表创建结束\n");
-        return NULL ;  // 错误返回
-    }
-    tiltle_left += sizeof("<标题:") - 1; //跳过标签
 
+    // 内容定位
+    char* jpg_left;
+    char* jpg_right;
+    char* tiltle_left  ;
     char* tiltle_right  ;
     char* content_left  ;
     char* content_right ;
     char* article_num;
+
+    // jpg内容定位首次定位
+    jpg_left = strstr(txt_content,"<图片:");
+    if( jpg_left == NULL ){
+        printf("部分内容缺失，链表创建结束\n");
+        return NULL ;  // 错误返回
+    }
+    jpg_left += sizeof("<图片:") - 1; //跳过标签
+    
     // 开始建立链表
     int i = 1;
     while( 1 )
     {  
+       // 更新jpg右侧地址
+       jpg_right = strstr(jpg_left,">"); 
+        if( jpg_right == NULL ){
+            // 撤销当前节点
+            pass->next = NULL; // 切断连接
+            now = pass;
+            free(next); // 释放资源
+            printf("部分内容缺失，链表创建结束\n");
+            return NULL ;  // 错误返回
+        }
+
+       // 更新标题左侧地址
+        tiltle_left = strstr(jpg_right + 2,"<标题:"); // 注意跳过'>\n' 
+        if( tiltle_left == NULL ){
+            // 已无新的内容
+            printf("链表创建结束\n");
+            return head ;  // 结束返回
+        }   
+        tiltle_left += sizeof("<标题:") -1;
+
        // 标题右侧地址更新
        tiltle_right = strstr(tiltle_left,">"); 
         if( tiltle_right == NULL ){
@@ -264,7 +318,22 @@ struct Article * buil_article_list(char* txt_content )
             printf("部分内容缺失，链表创建结束\n");
             return NULL ;  // 错误返回
         }      
-       
+
+       // 写入jpg信息  //注意强制改为'\0'会导致的提前结束问题
+       now->jpg = (char*)malloc( sizeof(char)*(jpg_right - jpg_left +1) );
+       if( now->jpg == NULL ){
+            // 撤销当前节点
+            pass->jpg = NULL; // 切断连接
+            now = pass;
+            free(next); // 释放资源
+            printf("内存分配失败，链表创建结束\n");
+            return NULL ;  // 错误返回
+       }
+       now->jpg[0] = '\0';   // 还有没有别的办法？
+       *(jpg_right) = '\0'; //修改方便字符串复制
+       strcat(now->jpg, jpg_left );
+       printf("图片:%s",now->jpg);
+
        // 写入文章标号
        article_num = num2char( i++ );
        now->num = (char*)malloc( sizeof(char)*( sizeof(article_num ) + 1 ) );
@@ -278,7 +347,7 @@ struct Article * buil_article_list(char* txt_content )
        }
        now->num[0] = '\0';
        strcat(now->num, article_num);
-       //printf("文章标号:%s\n",now->num);
+       printf("文章标号:%s\n",now->num);
 
        // 写入标题信息  //注意强制改为'\0'会导致的提前结束问题
        now->title = (char*)malloc( sizeof(char)*(tiltle_right - tiltle_left +1) );
@@ -311,14 +380,15 @@ struct Article * buil_article_list(char* txt_content )
        strcat(now->content, "\n   " );
 
 
-       // 更新标题左侧地址
-        tiltle_left = strstr(content_right + 3,"<标题:"); // 注意跳过'\0' 
-        if( tiltle_left == NULL ){
+       // 更新jpg左侧地址
+        jpg_left = strstr(content_right + 3,"<图片:"); // 注意跳过'\0' 
+        if( jpg_left == NULL ){
             // 已无新的内容
             printf("链表创建结束\n");
             return head ;  // 结束返回
         }   
-        tiltle_left += sizeof("<标题:") -1;
+        jpg_left += sizeof("<图片:") - 1; //跳过标签
+
         // 建立新节点
         next = (struct Article*)malloc( sizeof( struct Article ) );
         next->next = NULL;
@@ -339,14 +409,15 @@ void free_article_list( struct Article* head )
    int i=0;
    while( 1 )
    {
-        //printf("释放节点%d\n",i++);
+        printf("释放节点%d\n",i++);
         // 记录下个节点地址
         next = now->next; 
         // 释放当前节点资源
-        //free(now->num);
-        //free(now->title);
-        //free(now->content);
-        //free(now);
+        free(now->jpg);
+        free(now->num);
+        free(now->title);
+        free(now->content);
+        free(now);
         now = next; // 切换到下一个节点操作
         if( now == NULL ){
             printf("链表释放结束\n");

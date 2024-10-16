@@ -402,45 +402,5 @@
 <navLabel><text>常州市钟楼经济开发区：“聚链成群”加速壮大数字经济产业</text></navLabel>
 <content src="chapter98.html"/>
 </navPoint>
-<navPoint id="navPoint-99" playOrder="99">
-<navLabel><text>崇川区：全域培养加速年轻干部队伍成长</text></navLabel>
-<content src="chapter99.html"/>
-</navPoint>
-<navPoint id="navPoint-100" playOrder="100">
-<navLabel><text>徐州鼓楼区黄楼街道：“三聚三为”推动老干部工作提质增效</text></navLabel>
-<content src="chapter100.html"/>
-</navPoint>
-<navPoint id="navPoint-101" playOrder="101">
-<navLabel><text>姜堰区顾高镇：产业引擎驱动 推进富民强村</text></navLabel>
-<content src="chapter101.html"/>
-</navPoint>
-<navPoint id="navPoint-102" playOrder="102">
-<navLabel><text>扬州联通：开展“数字适老”公益活动让科技之光温暖银发一族</text></navLabel>
-<content src="chapter102.html"/>
-</navPoint>
-<navPoint id="navPoint-103" playOrder="103">
-<navLabel><text>安城集团：精修细护“绣”出城市美丽风景线</text></navLabel>
-<content src="chapter103.html"/>
-</navPoint>
-<navPoint id="navPoint-104" playOrder="104">
-<navLabel><text>南京市国有建设用地使用权挂牌出让公告</text></navLabel>
-<content src="chapter104.html"/>
-</navPoint>
-<navPoint id="navPoint-105" playOrder="105">
-<navLabel><text>南京市国有建设用地使用权挂牌出让公告</text></navLabel>
-<content src="chapter105.html"/>
-</navPoint>
-<navPoint id="navPoint-106" playOrder="106">
-<navLabel><text>千帆过尽 奋楫逐梦</text></navLabel>
-<content src="chapter106.html"/>
-</navPoint>
-<navPoint id="navPoint-107" playOrder="107">
-<navLabel><text>优化营商环境跑出“加速度”</text></navLabel>
-<content src="chapter107.html"/>
-</navPoint>
-<navPoint id="navPoint-108" playOrder="108">
-<navLabel><text>毛绒玩具产业，吃老本还是求突破</text></navLabel>
-<content src="chapter108.html"/>
-</navPoint>
 </navMap>
 </ncx>

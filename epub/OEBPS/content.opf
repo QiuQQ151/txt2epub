@@ -5,6 +5,7 @@
 <dc:creator>QQQ制作</dc:creator>
 <dc:language>zh</dc:language>
 <dc:identifier id="BookID">urn:uuid:12345</dc:identifier>
+<meta name="cover" content="cover-image"/>
 </metadata>
 <manifest>
 <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
@@ -106,16 +107,29 @@
 <item id="chapter96" href="chapter96.html" media-type="application/xhtml+xml"/>
 <item id="chapter97" href="chapter97.html" media-type="application/xhtml+xml"/>
 <item id="chapter98" href="chapter98.html" media-type="application/xhtml+xml"/>
-<item id="chapter99" href="chapter99.html" media-type="application/xhtml+xml"/>
-<item id="chapter100" href="chapter100.html" media-type="application/xhtml+xml"/>
-<item id="chapter101" href="chapter101.html" media-type="application/xhtml+xml"/>
-<item id="chapter102" href="chapter102.html" media-type="application/xhtml+xml"/>
-<item id="chapter103" href="chapter103.html" media-type="application/xhtml+xml"/>
-<item id="chapter104" href="chapter104.html" media-type="application/xhtml+xml"/>
-<item id="chapter105" href="chapter105.html" media-type="application/xhtml+xml"/>
-<item id="chapter106" href="chapter106.html" media-type="application/xhtml+xml"/>
-<item id="chapter107" href="chapter107.html" media-type="application/xhtml+xml"/>
-<item id="chapter108" href="chapter108.html" media-type="application/xhtml+xml"/>
+<item id="image9" href="images/9.jpg" media-type="aimage/jpeg"/>
+<item id="image10" href="images/10.jpg" media-type="aimage/jpeg"/>
+<item id="image19" href="images/19.jpg" media-type="aimage/jpeg"/>
+<item id="image21" href="images/21.jpg" media-type="aimage/jpeg"/>
+<item id="image23" href="images/23.jpg" media-type="aimage/jpeg"/>
+<item id="image32" href="images/32.jpg" media-type="aimage/jpeg"/>
+<item id="image37" href="images/37.jpg" media-type="aimage/jpeg"/>
+<item id="image38" href="images/38.jpg" media-type="aimage/jpeg"/>
+<item id="image42" href="images/42.jpg" media-type="aimage/jpeg"/>
+<item id="image43" href="images/43.jpg" media-type="aimage/jpeg"/>
+<item id="image47" href="images/47.jpg" media-type="aimage/jpeg"/>
+<item id="image48" href="images/48.jpg" media-type="aimage/jpeg"/>
+<item id="image54" href="images/54.jpg" media-type="aimage/jpeg"/>
+<item id="image62" href="images/62.jpg" media-type="aimage/jpeg"/>
+<item id="image68" href="images/68.jpg" media-type="aimage/jpeg"/>
+<item id="image76" href="images/76.jpg" media-type="aimage/jpeg"/>
+<item id="image77" href="images/77.jpg" media-type="aimage/jpeg"/>
+<item id="image78" href="images/78.jpg" media-type="aimage/jpeg"/>
+<item id="image79" href="images/79.jpg" media-type="aimage/jpeg"/>
+<item id="image80" href="images/80.jpg" media-type="aimage/jpeg"/>
+<item id="image94" href="images/94.jpg" media-type="aimage/jpeg"/>
+<item id="image96" href="images/96.jpg" media-type="aimage/jpeg"/>
+<item id="image97" href="images/97.jpg" media-type="aimage/jpeg"/>
 </manifest>
 <spine toc="ncx">
 <itemref idref="chapter1"/>
@@ -216,15 +230,8 @@
 <itemref idref="chapter96"/>
 <itemref idref="chapter97"/>
 <itemref idref="chapter98"/>
-<itemref idref="chapter99"/>
-<itemref idref="chapter100"/>
-<itemref idref="chapter101"/>
-<itemref idref="chapter102"/>
-<itemref idref="chapter103"/>
-<itemref idref="chapter104"/>
-<itemref idref="chapter105"/>
-<itemref idref="chapter106"/>
-<itemref idref="chapter107"/>
-<itemref idref="chapter108"/>
 </spine>
+<guide>
+<reference type="cover" title="Cover" href="cover.jpg"/>
+</guide>
 </package>

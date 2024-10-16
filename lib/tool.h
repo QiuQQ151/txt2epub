@@ -7,6 +7,7 @@ typedef struct Article {
     char* num;                 // 文章标号
     char* title;               // 存储文章标题
     char* content;             // 存储文章内容
+    char* jpg;                 // 文章配图
     struct Article *next;      // 指向下一个节点的指针
 } Article;
 
