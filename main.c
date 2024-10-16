@@ -10,7 +10,6 @@
 主函数
 参数传递：
 <被转换的txt文件地址>
-
 */
 int main(int argc,char *argv[] )
 {  
@@ -21,8 +20,6 @@ int main(int argc,char *argv[] )
       return 1;
    }
    
-
-
    // 读取txt内容到内存
    char* content;
    content = read_txt(argv[1]);

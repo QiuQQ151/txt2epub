@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://www.idpf.org/2007/opf" version="2.0" unique-identifier="BookID"> 
 <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
-<dc:title>纯文本电子书</dc:title>
-<dc:creator>作者姓名</dc:creator>
+<dc:title>每日新华日报</dc:title>
+<dc:creator>QQQ制作</dc:creator>
 <dc:language>zh</dc:language>
 <dc:identifier id="BookID">urn:uuid:12345</dc:identifier>
 </metadata>
@@ -89,6 +89,33 @@
 <item id="chapter79" href="chapter79.html" media-type="application/xhtml+xml"/>
 <item id="chapter80" href="chapter80.html" media-type="application/xhtml+xml"/>
 <item id="chapter81" href="chapter81.html" media-type="application/xhtml+xml"/>
+<item id="chapter82" href="chapter82.html" media-type="application/xhtml+xml"/>
+<item id="chapter83" href="chapter83.html" media-type="application/xhtml+xml"/>
+<item id="chapter84" href="chapter84.html" media-type="application/xhtml+xml"/>
+<item id="chapter85" href="chapter85.html" media-type="application/xhtml+xml"/>
+<item id="chapter86" href="chapter86.html" media-type="application/xhtml+xml"/>
+<item id="chapter87" href="chapter87.html" media-type="application/xhtml+xml"/>
+<item id="chapter88" href="chapter88.html" media-type="application/xhtml+xml"/>
+<item id="chapter89" href="chapter89.html" media-type="application/xhtml+xml"/>
+<item id="chapter90" href="chapter90.html" media-type="application/xhtml+xml"/>
+<item id="chapter91" href="chapter91.html" media-type="application/xhtml+xml"/>
+<item id="chapter92" href="chapter92.html" media-type="application/xhtml+xml"/>
+<item id="chapter93" href="chapter93.html" media-type="application/xhtml+xml"/>
+<item id="chapter94" href="chapter94.html" media-type="application/xhtml+xml"/>
+<item id="chapter95" href="chapter95.html" media-type="application/xhtml+xml"/>
+<item id="chapter96" href="chapter96.html" media-type="application/xhtml+xml"/>
+<item id="chapter97" href="chapter97.html" media-type="application/xhtml+xml"/>
+<item id="chapter98" href="chapter98.html" media-type="application/xhtml+xml"/>
+<item id="chapter99" href="chapter99.html" media-type="application/xhtml+xml"/>
+<item id="chapter100" href="chapter100.html" media-type="application/xhtml+xml"/>
+<item id="chapter101" href="chapter101.html" media-type="application/xhtml+xml"/>
+<item id="chapter102" href="chapter102.html" media-type="application/xhtml+xml"/>
+<item id="chapter103" href="chapter103.html" media-type="application/xhtml+xml"/>
+<item id="chapter104" href="chapter104.html" media-type="application/xhtml+xml"/>
+<item id="chapter105" href="chapter105.html" media-type="application/xhtml+xml"/>
+<item id="chapter106" href="chapter106.html" media-type="application/xhtml+xml"/>
+<item id="chapter107" href="chapter107.html" media-type="application/xhtml+xml"/>
+<item id="chapter108" href="chapter108.html" media-type="application/xhtml+xml"/>
 </manifest>
 <spine toc="ncx">
 <itemref idref="chapter1"/>
@@ -172,5 +199,32 @@
 <itemref idref="chapter79"/>
 <itemref idref="chapter80"/>
 <itemref idref="chapter81"/>
+<itemref idref="chapter82"/>
+<itemref idref="chapter83"/>
+<itemref idref="chapter84"/>
+<itemref idref="chapter85"/>
+<itemref idref="chapter86"/>
+<itemref idref="chapter87"/>
+<itemref idref="chapter88"/>
+<itemref idref="chapter89"/>
+<itemref idref="chapter90"/>
+<itemref idref="chapter91"/>
+<itemref idref="chapter92"/>
+<itemref idref="chapter93"/>
+<itemref idref="chapter94"/>
+<itemref idref="chapter95"/>
+<itemref idref="chapter96"/>
+<itemref idref="chapter97"/>
+<itemref idref="chapter98"/>
+<itemref idref="chapter99"/>
+<itemref idref="chapter100"/>
+<itemref idref="chapter101"/>
+<itemref idref="chapter102"/>
+<itemref idref="chapter103"/>
+<itemref idref="chapter104"/>
+<itemref idref="chapter105"/>
+<itemref idref="chapter106"/>
+<itemref idref="chapter107"/>
+<itemref idref="chapter108"/>
 </spine>
 </package>

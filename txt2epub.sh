@@ -1,5 +1,14 @@
 #!/bin/bash
 # txt转换为epub执行脚本
+file_pattern="/root/project/txt2epub"
+
+# 0 保存旧文件
+for file in /root/project/txt2epub/temp/*; do  # 遍历目标目录
+    if [ -f "$file" ]; then
+        mv $file /root/project/txt2epub/history/
+    fi
+done
+
 
 # 1 删除旧的内容目录，重建目录
 cd "/root/project/txt2epub" # 进入操作目录
@@ -12,10 +21,18 @@ mkdir "epub/OEBPS"
 cp "lib/mimetype" "epub"
 cp "lib/container.xml" "epub/META-INF/"
 
-# 3 启动转换程序
-./txt2epub.exe ./新华日报20241015.txt
+#  考虑多文件问题，依次转换打包
+for txt_file in ../html2txt/temp/*.txt; do
 
-# 4 文件打包
+filename=$(basename "$txt_file" .txt)  # 如 新华日报20241016
+epub_file="../temp/${filename}.epub"
+
+# 3 启动转换程序
+./txt2epub.exe "$txt_file"
+# 4 epub文件打包
 cd "epub"
-zip -X0 ../新华日报.epub mimetype
-zip -rX9 ../新华日报.epub META-INF/ OEBPS/
+zip -X0 "$epub_file" mimetype
+zip -rX9 "$epub_file" META-INF/ OEBPS/
+cd ".."
+
+done

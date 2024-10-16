@@ -31,8 +31,8 @@ int content_opf_create( struct Article* head,  FILE* log )
     fputs("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",content_opf_fp);
     fputs("<package xmlns=\"http://www.idpf.org/2007/opf\" version=\"2.0\" unique-identifier=\"BookID\"> \n",content_opf_fp);
     fputs("<metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n",content_opf_fp);
-    fputs("<dc:title>纯文本电子书</dc:title>\n",content_opf_fp);
-    fputs("<dc:creator>作者姓名</dc:creator>\n",content_opf_fp);
+    fputs("<dc:title>每日新华日报</dc:title>\n",content_opf_fp);
+    fputs("<dc:creator>QQQ制作</dc:creator>\n",content_opf_fp);
     fputs("<dc:language>zh</dc:language>\n",content_opf_fp);
     fputs("<dc:identifier id=\"BookID\">urn:uuid:12345</dc:identifier>\n</metadata>\n",content_opf_fp);
 
@@ -163,8 +163,25 @@ int chapter_create( struct Article* head, FILE* log )
         fputs(now->title,chapter_html_fp);
         fputs("</h1>\n",chapter_html_fp);
 
-        fputs("<p>",chapter_html_fp);
-        fputs(now->content,chapter_html_fp);
+        fputs("<p>\u3000\u3000",chapter_html_fp);
+        // 增加换行符
+        char* content_left = now->content;
+        char* content_right = strstr(content_left,"\n");
+        while( content_right !=NULL )
+        { 
+          *content_right = '\0';
+          fputs(content_left,chapter_html_fp);
+          // 更新段的起始处
+          content_left = content_right + 1;
+          // 检测新段回车结束符
+          content_right = strstr(content_left,"\n");
+          if( content_right == NULL ){
+            // 没检测到结束符，本文结束
+            break;
+          }
+          // 新的段有效，先插入换行符
+          fputs("<br>\u3000\u3000",chapter_html_fp);
+        }
         fputs("</p>\n",chapter_html_fp);
         fputs("</body>\n",chapter_html_fp);
         fputs("</html>\n",chapter_html_fp);
@@ -278,8 +295,8 @@ struct Article * buil_article_list(char* txt_content )
        strcat(now->title, tiltle_left );
        //printf("标题:%s\n",now->title);
        
-       //写入正文信息
-       now->content = (char*)malloc( sizeof(char)*(content_right - content_left +1) );
+       //写入正文信息 // 短尾均增加"\n   "4字符方便后面处理
+       now->content = (char*)malloc( sizeof(char)*(content_right - content_left + 4 + 1) );
        if( now->content == NULL ){
             // 撤销当前节点
             pass->next = NULL; // 切断连接
@@ -291,6 +308,7 @@ struct Article * buil_article_list(char* txt_content )
        now->content[0] = '\0';
        *(content_right) = '\0';   //  *(content_right+1) = '\0';   越界？
        strcat(now->content, content_left );
+       strcat(now->content, "\n   " );
 
 
        // 更新标题左侧地址
