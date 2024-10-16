@@ -35,6 +35,8 @@ int main(int argc,char *argv[] )
    toc_ncx_create(head,log_fp);
    // 创建chapterx.html
    chapter_create(head,log_fp);
+   // 创建index.html
+   index_create(head,log_fp);
 
    // 释放资源
    free_article_list(head);

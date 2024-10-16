@@ -7,398 +7,401 @@
 <meta name="dtb:maxPageNumber" content="0"/>
 </head>
 <docTitle>
-<text>示例书籍</text>
+<text>新闻目录</text>
 </docTitle>
+<navPoint id="index" playOrder="1">
+<navLabel><text>新闻目录</text></navLabel>
+<content src="index.html"/>
 <navMap>
-<navPoint id="navPoint-1" playOrder="1">
+<navPoint id="navPoint-1" playOrder="2">
 <navLabel><text>《在文艺工作座谈会上的讲话》</text></navLabel>
 <content src="chapter1.html"/>
 </navPoint>
-<navPoint id="navPoint-2" playOrder="2">
+<navPoint id="navPoint-2" playOrder="3">
 <navLabel><text>全面加强新时代新征程军事理论工作 建设中国特色现代军事理论体系</text></navLabel>
 <content src="chapter2.html"/>
 </navPoint>
-<navPoint id="navPoint-3" playOrder="3">
+<navPoint id="navPoint-3" playOrder="4">
 <navLabel><text>切实履行党管武装政治责任 推动新时代人民武装工作高质量发展</text></navLabel>
 <content src="chapter3.html"/>
 </navPoint>
-<navPoint id="navPoint-4" playOrder="4">
+<navPoint id="navPoint-4" playOrder="5">
 <navLabel><text>加快建设新型能源体系助力江苏勇挑大梁</text></navLabel>
 <content src="chapter4.html"/>
 </navPoint>
-<navPoint id="navPoint-5" playOrder="5">
+<navPoint id="navPoint-5" playOrder="6">
 <navLabel><text>二百三十个计划新开工项目全部开工</text></navLabel>
 <content src="chapter5.html"/>
 </navPoint>
-<navPoint id="navPoint-6" playOrder="6">
+<navPoint id="navPoint-6" playOrder="7">
 <navLabel><text>2024常州新能源汽车全球合作伙伴大会暨理想汽车百万辆下线活动举行</text></navLabel>
 <content src="chapter6.html"/>
 </navPoint>
-<navPoint id="navPoint-7" playOrder="7">
+<navPoint id="navPoint-7" playOrder="8">
 <navLabel><text>红链赋能强引领 万象出新促发展</text></navLabel>
 <content src="chapter7.html"/>
 </navPoint>
-<navPoint id="navPoint-8" playOrder="8">
+<navPoint id="navPoint-8" playOrder="9">
 <navLabel><text>热忱描绘伟大时代 矢志攀登文艺高峰</text></navLabel>
 <content src="chapter8.html"/>
 </navPoint>
-<navPoint id="navPoint-9" playOrder="9">
+<navPoint id="navPoint-9" playOrder="10">
 <navLabel><text>深化“四化”同步集成改革 全力推进中国式现代化宿迁新实践</text></navLabel>
 <content src="chapter9.html"/>
 </navPoint>
-<navPoint id="navPoint-10" playOrder="10">
+<navPoint id="navPoint-10" playOrder="11">
 <navLabel><text> </text></navLabel>
 <content src="chapter10.html"/>
 </navPoint>
-<navPoint id="navPoint-11" playOrder="11">
+<navPoint id="navPoint-11" playOrder="12">
 <navLabel><text>水到尽处是乡愁</text></navLabel>
 <content src="chapter11.html"/>
 </navPoint>
-<navPoint id="navPoint-12" playOrder="12">
+<navPoint id="navPoint-12" playOrder="13">
 <navLabel><text>一心赤诚，守护烈士英灵四十三载</text></navLabel>
 <content src="chapter12.html"/>
 </navPoint>
-<navPoint id="navPoint-13" playOrder="13">
+<navPoint id="navPoint-13" playOrder="14">
 <navLabel><text>业主众筹50万，小区道路换新颜</text></navLabel>
 <content src="chapter13.html"/>
 </navPoint>
-<navPoint id="navPoint-14" playOrder="14">
+<navPoint id="navPoint-14" playOrder="15">
 <navLabel><text>废弃地上建起5万余平方米厂房</text></navLabel>
 <content src="chapter14.html"/>
 </navPoint>
-<navPoint id="navPoint-15" playOrder="15">
+<navPoint id="navPoint-15" playOrder="16">
 <navLabel><text>群众</text></navLabel>
 <content src="chapter15.html"/>
 </navPoint>
-<navPoint id="navPoint-16" playOrder="16">
+<navPoint id="navPoint-16" playOrder="17">
 <navLabel><text>公 告</text></navLabel>
 <content src="chapter16.html"/>
 </navPoint>
-<navPoint id="navPoint-17" playOrder="17">
+<navPoint id="navPoint-17" playOrder="18">
 <navLabel><text>公 告</text></navLabel>
 <content src="chapter17.html"/>
 </navPoint>
-<navPoint id="navPoint-18" playOrder="18">
+<navPoint id="navPoint-18" playOrder="19">
 <navLabel><text>公 告</text></navLabel>
 <content src="chapter18.html"/>
 </navPoint>
-<navPoint id="navPoint-19" playOrder="19">
+<navPoint id="navPoint-19" playOrder="20">
 <navLabel><text> </text></navLabel>
 <content src="chapter19.html"/>
 </navPoint>
-<navPoint id="navPoint-20" playOrder="20">
+<navPoint id="navPoint-20" playOrder="21">
 <navLabel><text>而今迈步从头越</text></navLabel>
 <content src="chapter20.html"/>
 </navPoint>
-<navPoint id="navPoint-21" playOrder="21">
+<navPoint id="navPoint-21" playOrder="22">
 <navLabel><text>三步走！我国空间科学中长期发展规划出炉</text></navLabel>
 <content src="chapter21.html"/>
 </navPoint>
-<navPoint id="navPoint-22" playOrder="22">
+<navPoint id="navPoint-22" playOrder="23">
 <navLabel><text>综合所得年收入10万元以下基本无需缴纳个税</text></navLabel>
 <content src="chapter22.html"/>
 </navPoint>
-<navPoint id="navPoint-23" playOrder="23">
+<navPoint id="navPoint-23" playOrder="24">
 <navLabel><text>中国体育彩票全国统一发行30年暨第十季江苏体彩爱行走启动仪式在苏州举行</text></navLabel>
 <content src="chapter23.html"/>
 </navPoint>
-<navPoint id="navPoint-24" playOrder="24">
+<navPoint id="navPoint-24" playOrder="25">
 <navLabel><text>探索新路径 绘出城市基层善治“兴图景”</text></navLabel>
 <content src="chapter24.html"/>
 </navPoint>
-<navPoint id="navPoint-25" playOrder="25">
+<navPoint id="navPoint-25" playOrder="26">
 <navLabel><text>“优选深蹲”促客户经理队伍“枝繁叶茂”</text></navLabel>
 <content src="chapter25.html"/>
 </navPoint>
-<navPoint id="navPoint-26" playOrder="26">
+<navPoint id="navPoint-26" playOrder="27">
 <navLabel><text>创建培育“幸福型企业” 为职工幸福生活加码</text></navLabel>
 <content src="chapter26.html"/>
 </navPoint>
-<navPoint id="navPoint-27" playOrder="27">
+<navPoint id="navPoint-27" playOrder="28">
 <navLabel><text>沭阳：聚焦小区“三通” 解锁“服务密码”</text></navLabel>
 <content src="chapter27.html"/>
 </navPoint>
-<navPoint id="navPoint-28" playOrder="28">
+<navPoint id="navPoint-28" playOrder="29">
 <navLabel><text>组织环卫工人健康体检</text></navLabel>
 <content src="chapter28.html"/>
 </navPoint>
-<navPoint id="navPoint-29" playOrder="29">
+<navPoint id="navPoint-29" playOrder="30">
 <navLabel><text>集体用工管理系统上线 推动小微权力规范运行</text></navLabel>
 <content src="chapter29.html"/>
 </navPoint>
-<navPoint id="navPoint-30" playOrder="30">
+<navPoint id="navPoint-30" playOrder="31">
 <navLabel><text>紧盯便民服务“小窗口” 写好营商环境“大文章”</text></navLabel>
 <content src="chapter30.html"/>
 </navPoint>
-<navPoint id="navPoint-31" playOrder="31">
+<navPoint id="navPoint-31" playOrder="32">
 <navLabel><text>铜山区汉王镇：聚焦“双百”多向发力推进乡村振兴</text></navLabel>
 <content src="chapter31.html"/>
 </navPoint>
-<navPoint id="navPoint-32" playOrder="32">
+<navPoint id="navPoint-32" playOrder="33">
 <navLabel><text>宿迁市宿豫区机关工委深入推进机关党建“强基提升年”行动</text></navLabel>
 <content src="chapter32.html"/>
 </navPoint>
-<navPoint id="navPoint-33" playOrder="33">
+<navPoint id="navPoint-33" playOrder="34">
 <navLabel><text>南通大学着力服务高水平科技自立自强</text></navLabel>
 <content src="chapter33.html"/>
 </navPoint>
-<navPoint id="navPoint-34" playOrder="34">
+<navPoint id="navPoint-34" playOrder="35">
 <navLabel><text>打造“留学苏卫”品牌 提升国际化办学水平</text></navLabel>
 <content src="chapter34.html"/>
 </navPoint>
-<navPoint id="navPoint-35" playOrder="35">
+<navPoint id="navPoint-35" playOrder="36">
 <navLabel><text>智能控制学院党总支获全国高校党建标杆院系称号</text></navLabel>
 <content src="chapter35.html"/>
 </navPoint>
-<navPoint id="navPoint-36" playOrder="36">
+<navPoint id="navPoint-36" playOrder="37">
 <navLabel><text>以“三加强、三确保”推动党外知识分子思想政治工作提质增效</text></navLabel>
 <content src="chapter36.html"/>
 </navPoint>
-<navPoint id="navPoint-37" playOrder="37">
+<navPoint id="navPoint-37" playOrder="38">
 <navLabel><text> </text></navLabel>
 <content src="chapter37.html"/>
 </navPoint>
-<navPoint id="navPoint-38" playOrder="38">
+<navPoint id="navPoint-38" playOrder="39">
 <navLabel><text> </text></navLabel>
 <content src="chapter38.html"/>
 </navPoint>
-<navPoint id="navPoint-39" playOrder="39">
+<navPoint id="navPoint-39" playOrder="40">
 <navLabel><text>2024软科中国最好学科排名发布</text></navLabel>
 <content src="chapter39.html"/>
 </navPoint>
-<navPoint id="navPoint-40" playOrder="40">
+<navPoint id="navPoint-40" playOrder="41">
 <navLabel><text>专家解析“筷子夹火箭”难在哪里</text></navLabel>
 <content src="chapter40.html"/>
 </navPoint>
-<navPoint id="navPoint-41" playOrder="41">
+<navPoint id="navPoint-41" playOrder="42">
 <navLabel><text>让地震仪“站上”海上风电平台</text></navLabel>
 <content src="chapter41.html"/>
 </navPoint>
-<navPoint id="navPoint-42" playOrder="42">
+<navPoint id="navPoint-42" playOrder="43">
 <navLabel><text>以带薪实习为牵引 激发学生内驱力与创造力</text></navLabel>
 <content src="chapter42.html"/>
 </navPoint>
-<navPoint id="navPoint-43" playOrder="43">
+<navPoint id="navPoint-43" playOrder="44">
 <navLabel><text> </text></navLabel>
 <content src="chapter43.html"/>
 </navPoint>
-<navPoint id="navPoint-44" playOrder="44">
+<navPoint id="navPoint-44" playOrder="45">
 <navLabel><text>智慧＋服务，让老年人“医”路畅通</text></navLabel>
 <content src="chapter44.html"/>
 </navPoint>
-<navPoint id="navPoint-45" playOrder="45">
+<navPoint id="navPoint-45" playOrder="46">
 <navLabel><text>产妇家中产女险象环生，医护急救守护母女平安</text></navLabel>
 <content src="chapter45.html"/>
 </navPoint>
-<navPoint id="navPoint-46" playOrder="46">
+<navPoint id="navPoint-46" playOrder="47">
 <navLabel><text>国医大师施杞：养生讲究顺应四时、天人合一</text></navLabel>
 <content src="chapter46.html"/>
 </navPoint>
-<navPoint id="navPoint-47" playOrder="47">
+<navPoint id="navPoint-47" playOrder="48">
 <navLabel><text>几片紫菜下肚进了ICU？</text></navLabel>
 <content src="chapter47.html"/>
 </navPoint>
-<navPoint id="navPoint-48" playOrder="48">
+<navPoint id="navPoint-48" playOrder="49">
 <navLabel><text> </text></navLabel>
 <content src="chapter48.html"/>
 </navPoint>
-<navPoint id="navPoint-49" playOrder="49">
+<navPoint id="navPoint-49" playOrder="50">
 <navLabel><text>以“参与式艺术”激发社区新活力</text></navLabel>
 <content src="chapter49.html"/>
 </navPoint>
-<navPoint id="navPoint-50" playOrder="50">
+<navPoint id="navPoint-50" playOrder="51">
 <navLabel><text>加快推动研究生教育与社会治理互融共进</text></navLabel>
 <content src="chapter50.html"/>
 </navPoint>
-<navPoint id="navPoint-51" playOrder="51">
+<navPoint id="navPoint-51" playOrder="52">
 <navLabel><text>构建高等教育服务乡村振兴支持体系</text></navLabel>
 <content src="chapter51.html"/>
 </navPoint>
-<navPoint id="navPoint-52" playOrder="52">
+<navPoint id="navPoint-52" playOrder="53">
 <navLabel><text>以新质生产力助力农村经济高质量发展</text></navLabel>
 <content src="chapter52.html"/>
 </navPoint>
-<navPoint id="navPoint-53" playOrder="53">
+<navPoint id="navPoint-53" playOrder="54">
 <navLabel><text>优化思政教育模式，促进大学生高质量就业</text></navLabel>
 <content src="chapter53.html"/>
 </navPoint>
-<navPoint id="navPoint-54" playOrder="54">
+<navPoint id="navPoint-54" playOrder="55">
 <navLabel><text>打开江苏旅游高质量发展新画卷</text></navLabel>
 <content src="chapter54.html"/>
 </navPoint>
-<navPoint id="navPoint-55" playOrder="55">
+<navPoint id="navPoint-55" playOrder="56">
 <navLabel><text>聚焦“三个提升” 润州区锻造能为善为纪检监察队伍</text></navLabel>
 <content src="chapter55.html"/>
 </navPoint>
-<navPoint id="navPoint-56" playOrder="56">
+<navPoint id="navPoint-56" playOrder="57">
 <navLabel><text>镇江经开区持之以恒纠治节日“四风”</text></navLabel>
 <content src="chapter56.html"/>
 </navPoint>
-<navPoint id="navPoint-57" playOrder="57">
+<navPoint id="navPoint-57" playOrder="58">
 <navLabel><text>讲身边事 学身边人</text></navLabel>
 <content src="chapter57.html"/>
 </navPoint>
-<navPoint id="navPoint-58" playOrder="58">
+<navPoint id="navPoint-58" playOrder="59">
 <navLabel><text>一双雪地靴，两代“鞋掌门”</text></navLabel>
 <content src="chapter58.html"/>
 </navPoint>
-<navPoint id="navPoint-59" playOrder="59">
+<navPoint id="navPoint-59" playOrder="60">
 <navLabel><text>家家有庭院 户户有花园</text></navLabel>
 <content src="chapter59.html"/>
 </navPoint>
-<navPoint id="navPoint-60" playOrder="60">
+<navPoint id="navPoint-60" playOrder="61">
 <navLabel><text>镇江国控集团搭建年轻干部成长“快车道”</text></navLabel>
 <content src="chapter60.html"/>
 </navPoint>
-<navPoint id="navPoint-61" playOrder="61">
+<navPoint id="navPoint-61" playOrder="62">
 <navLabel><text>丹阳开发区赴深圳举办招商推介会</text></navLabel>
 <content src="chapter61.html"/>
 </navPoint>
-<navPoint id="navPoint-62" playOrder="62">
+<navPoint id="navPoint-62" playOrder="63">
 <navLabel><text>“江”“海”联动，共赢未来</text></navLabel>
 <content src="chapter62.html"/>
 </navPoint>
-<navPoint id="navPoint-63" playOrder="63">
+<navPoint id="navPoint-63" playOrder="64">
 <navLabel><text>镇江三山、南山景区国庆假期游客同比增12.9%</text></navLabel>
 <content src="chapter63.html"/>
 </navPoint>
-<navPoint id="navPoint-64" playOrder="64">
+<navPoint id="navPoint-64" playOrder="65">
 <navLabel><text>句容宝华：理论“充电宝”让宣讲更鲜活</text></navLabel>
 <content src="chapter64.html"/>
 </navPoint>
-<navPoint id="navPoint-65" playOrder="65">
+<navPoint id="navPoint-65" playOrder="66">
 <navLabel><text>江苏银行镇江分行：深耕养老金融 护航“幸福晚年”</text></navLabel>
 <content src="chapter65.html"/>
 </navPoint>
-<navPoint id="navPoint-66" playOrder="66">
+<navPoint id="navPoint-66" playOrder="67">
 <navLabel><text>丹阳界牌：产业向“新”动能澎湃</text></navLabel>
 <content src="chapter66.html"/>
 </navPoint>
-<navPoint id="navPoint-67" playOrder="67">
+<navPoint id="navPoint-67" playOrder="68">
 <navLabel><text>镇江让群众在家门口享受优质医疗服务</text></navLabel>
 <content src="chapter67.html"/>
 </navPoint>
-<navPoint id="navPoint-68" playOrder="68">
+<navPoint id="navPoint-68" playOrder="69">
 <navLabel><text>镇江嘉年华活动掀起助农新高潮</text></navLabel>
 <content src="chapter68.html"/>
 </navPoint>
-<navPoint id="navPoint-69" playOrder="69">
+<navPoint id="navPoint-69" playOrder="70">
 <navLabel><text>江苏博物馆越来越“有看头”</text></navLabel>
 <content src="chapter69.html"/>
 </navPoint>
-<navPoint id="navPoint-70" playOrder="70">
+<navPoint id="navPoint-70" playOrder="71">
 <navLabel><text>省领导会见日本客人</text></navLabel>
 <content src="chapter70.html"/>
 </navPoint>
-<navPoint id="navPoint-71" playOrder="71">
+<navPoint id="navPoint-71" playOrder="72">
 <navLabel><text>南京中医药大学举行创新发展大会</text></navLabel>
 <content src="chapter71.html"/>
 </navPoint>
-<navPoint id="navPoint-72" playOrder="72">
+<navPoint id="navPoint-72" playOrder="73">
 <navLabel><text>9月江苏CPI同比上涨0.8%</text></navLabel>
 <content src="chapter72.html"/>
 </navPoint>
-<navPoint id="navPoint-73" playOrder="73">
+<navPoint id="navPoint-73" playOrder="74">
 <navLabel><text>第五届紫金京昆艺术群英会开幕</text></navLabel>
 <content src="chapter73.html"/>
 </navPoint>
-<navPoint id="navPoint-74" playOrder="74">
+<navPoint id="navPoint-74" playOrder="75">
 <navLabel><text>南京设立300亿元AIC股权投资基金</text></navLabel>
 <content src="chapter74.html"/>
 </navPoint>
-<navPoint id="navPoint-75" playOrder="75">
+<navPoint id="navPoint-75" playOrder="76">
 <navLabel><text>全链条减损 “粮袋子”扎牢</text></navLabel>
 <content src="chapter75.html"/>
 </navPoint>
-<navPoint id="navPoint-76" playOrder="76">
+<navPoint id="navPoint-76" playOrder="77">
 <navLabel><text>“实”字校训点亮教育之光</text></navLabel>
 <content src="chapter76.html"/>
 </navPoint>
-<navPoint id="navPoint-77" playOrder="77">
+<navPoint id="navPoint-77" playOrder="78">
 <navLabel><text>一粥一饭，当思来之不易</text></navLabel>
 <content src="chapter77.html"/>
 </navPoint>
-<navPoint id="navPoint-78" playOrder="78">
+<navPoint id="navPoint-78" playOrder="79">
 <navLabel><text> </text></navLabel>
 <content src="chapter78.html"/>
 </navPoint>
-<navPoint id="navPoint-79" playOrder="79">
+<navPoint id="navPoint-79" playOrder="80">
 <navLabel><text> </text></navLabel>
 <content src="chapter79.html"/>
 </navPoint>
-<navPoint id="navPoint-80" playOrder="80">
+<navPoint id="navPoint-80" playOrder="81">
 <navLabel><text>让演艺经济成为城市流量密码</text></navLabel>
 <content src="chapter80.html"/>
 </navPoint>
-<navPoint id="navPoint-81" playOrder="81">
+<navPoint id="navPoint-81" playOrder="82">
 <navLabel><text>热忱描绘伟大时代 矢志攀登文艺高峰</text></navLabel>
 <content src="chapter81.html"/>
 </navPoint>
-<navPoint id="navPoint-82" playOrder="82">
+<navPoint id="navPoint-82" playOrder="83">
 <navLabel><text>让汉字屹立在每个中国人心中</text></navLabel>
 <content src="chapter82.html"/>
 </navPoint>
-<navPoint id="navPoint-83" playOrder="83">
+<navPoint id="navPoint-83" playOrder="84">
 <navLabel><text>丹青绘时代，笔墨映初心</text></navLabel>
 <content src="chapter83.html"/>
 </navPoint>
-<navPoint id="navPoint-84" playOrder="84">
+<navPoint id="navPoint-84" playOrder="85">
 <navLabel><text>以优秀作品弘扬曲艺国粹</text></navLabel>
 <content src="chapter84.html"/>
 </navPoint>
-<navPoint id="navPoint-85" playOrder="85">
+<navPoint id="navPoint-85" playOrder="86">
 <navLabel><text>人民永远是文艺的主体</text></navLabel>
 <content src="chapter85.html"/>
 </navPoint>
-<navPoint id="navPoint-86" playOrder="86">
+<navPoint id="navPoint-86" playOrder="87">
 <navLabel><text>用心去体验火热生活</text></navLabel>
 <content src="chapter86.html"/>
 </navPoint>
-<navPoint id="navPoint-87" playOrder="87">
+<navPoint id="navPoint-87" playOrder="88">
 <navLabel><text>立足当下，面向未来</text></navLabel>
 <content src="chapter87.html"/>
 </navPoint>
-<navPoint id="navPoint-88" playOrder="88">
+<navPoint id="navPoint-88" playOrder="89">
 <navLabel><text>演百姓戏，赢百姓心</text></navLabel>
 <content src="chapter88.html"/>
 </navPoint>
-<navPoint id="navPoint-89" playOrder="89">
+<navPoint id="navPoint-89" playOrder="90">
 <navLabel><text>守住老手艺，展现新风采</text></navLabel>
 <content src="chapter89.html"/>
 </navPoint>
-<navPoint id="navPoint-90" playOrder="90">
+<navPoint id="navPoint-90" playOrder="91">
 <navLabel><text>保持热爱，找准“方向感”</text></navLabel>
 <content src="chapter90.html"/>
 </navPoint>
-<navPoint id="navPoint-91" playOrder="91">
+<navPoint id="navPoint-91" playOrder="92">
 <navLabel><text>“先用后买”，让更多科技成果落地生金</text></navLabel>
 <content src="chapter91.html"/>
 </navPoint>
-<navPoint id="navPoint-92" playOrder="92">
+<navPoint id="navPoint-92" playOrder="93">
 <navLabel><text>与AI“斗智斗勇”，不如多探寻真实自我</text></navLabel>
 <content src="chapter92.html"/>
 </navPoint>
-<navPoint id="navPoint-93" playOrder="93">
+<navPoint id="navPoint-93" playOrder="94">
 <navLabel><text>期待更多“旧街”成“新景”</text></navLabel>
 <content src="chapter93.html"/>
 </navPoint>
-<navPoint id="navPoint-94" playOrder="94">
+<navPoint id="navPoint-94" playOrder="95">
 <navLabel><text>别让“套牌”网站“大行其道”</text></navLabel>
 <content src="chapter94.html"/>
 </navPoint>
-<navPoint id="navPoint-95" playOrder="95">
+<navPoint id="navPoint-95" playOrder="96">
 <navLabel><text>高邮市科技镇长团：全力助推产业提质增效</text></navLabel>
 <content src="chapter95.html"/>
 </navPoint>
-<navPoint id="navPoint-96" playOrder="96">
+<navPoint id="navPoint-96" playOrder="97">
 <navLabel><text>3.7万个岗位吸引2万名毕业生</text></navLabel>
 <content src="chapter96.html"/>
 </navPoint>
-<navPoint id="navPoint-97" playOrder="97">
+<navPoint id="navPoint-97" playOrder="98">
 <navLabel><text>向新蝶变，为美好生活提味，为美丽中国赋能</text></navLabel>
 <content src="chapter97.html"/>
 </navPoint>
-<navPoint id="navPoint-98" playOrder="98">
+<navPoint id="navPoint-98" playOrder="99">
 <navLabel><text>常州市钟楼经济开发区：“聚链成群”加速壮大数字经济产业</text></navLabel>
 <content src="chapter98.html"/>
 </navPoint>

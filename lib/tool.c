@@ -40,8 +40,10 @@ int content_opf_create( struct Article* head,  FILE* log )
     struct Article* now = head;
     struct Article* next;
     // 写入manifest
-    fputs("<manifest>\n<item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n",content_opf_fp);
-    // 正文
+    fputs("<manifest>\n",content_opf_fp);
+    fputs("<item id=\"index\" href=\"index.html\" media-type=\"application/xhtml+xml\"/>\n",content_opf_fp);
+    fputs("<item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n",content_opf_fp);
+    //    正文
     while( now->next != NULL )
     {
        fputs("<item id=\"chapter",content_opf_fp);
@@ -52,7 +54,7 @@ int content_opf_create( struct Article* head,  FILE* log )
        next = now->next;
        now = next;
     }
-    // 图片 <item id="image1" href="images/image1.jpg" media-type="image/jpeg"/>
+    //     图片 <item id="image1" href="images/image1.jpg" media-type="image/jpeg"/>
     now = head;
     while( now->next != NULL )
     {
@@ -71,6 +73,7 @@ int content_opf_create( struct Article* head,  FILE* log )
     
     // 写入spine
     fputs("<spine toc=\"ncx\">\n",content_opf_fp);
+    fputs("<itemref idref=\"index\"/>",content_opf_fp);
     now = head;
     while( now->next != NULL )
     {
@@ -102,26 +105,32 @@ int toc_ncx_create( struct Article* head, FILE* log  )
     // 写入基本前缀
     fputs("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",toc_ncx_fp);
     fputs("<ncx xmlns=\"http://www.daisy.org/z3986/2005/ncx/\" version=\"2005-1\">\n",toc_ncx_fp);
+
     fputs("<head>\n",toc_ncx_fp);
     fputs("<meta name=\"dtb:uid\" content=\"urn:uuid:12345\"/>\n",toc_ncx_fp);
     fputs("<meta name=\"dtb:depth\" content=\"1\"/>\n",toc_ncx_fp);
     fputs("<meta name=\"dtb:totalPageCount\" content=\"0\"/>\n",toc_ncx_fp);
     fputs("<meta name=\"dtb:maxPageNumber\" content=\"0\"/>\n",toc_ncx_fp);
     fputs("</head>\n",toc_ncx_fp);
+
     fputs("<docTitle>\n",toc_ncx_fp);
-    fputs("<text>示例书籍</text>\n",toc_ncx_fp);
+    fputs("<text>新闻目录</text>\n",toc_ncx_fp);
     fputs("</docTitle>\n",toc_ncx_fp);
     
     // 写入navMap
+    fputs("<navPoint id=\"index\" playOrder=\"1\">\n",toc_ncx_fp);
+    fputs("<navLabel><text>新闻目录</text></navLabel>\n",toc_ncx_fp);
+    fputs("<content src=\"index.html\"/>\n",toc_ncx_fp);
     struct Article* now = head;
     struct Article* next;
     fputs("<navMap>\n",toc_ncx_fp);
     while( now->next != NULL )
-    {
+    {   
+        char* num_Order = num2char( atoi(now->num) + 1 ); 
         fputs("<navPoint id=\"navPoint-",toc_ncx_fp);
         fputs(now->num,toc_ncx_fp);
         fputs("\" playOrder=\"",toc_ncx_fp);
-        fputs(now->num,toc_ncx_fp);
+        fputs(num_Order,toc_ncx_fp);
         fputs("\">\n",toc_ncx_fp);
 
         fputs("<navLabel><text>",toc_ncx_fp);
@@ -224,8 +233,45 @@ int chapter_create( struct Article* head, FILE* log )
 
 }
 
+/*
+创建index
+*/
+int index_create( struct Article* head, FILE* log )
+{
+    FILE* index_fp;
+    index_fp = fopen("./epub/OEBPS/index.html","w"); //写入模式打开
+    if( index_fp == NULL ){
+        printf("无法打开index.html\n");
+        return 1;
+    }
+    // 写入基本前缀
+    fputs("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",index_fp);
+    fputs("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n",index_fp);
+    fputs("<head>\n",index_fp);
+    fputs("<title>新闻目录</title>\n",index_fp);
+    fputs("</head>\n",index_fp);
 
-
+    fputs("<body>\n",index_fp);
+    fputs("<h1>新闻目录</h1>\n",index_fp);
+    fputs("<ul>\n",index_fp);
+    // <li><a href="chapter3.html">文章 3: 第三篇文章标题</a></li>
+    struct Article* now = head;
+    struct Article* next;
+    while( now->next !=NULL )
+    {
+       fputs("<li><a href=\"chapter",index_fp);
+       fputs( now->num,index_fp);
+       fputs(".html\">",index_fp);
+       fputs( now->title,index_fp);
+       fputs( "</a></li>\n",index_fp);
+       next = now->next;
+       now = next;
+    }
+    fputs("</ul>\n",index_fp);
+    fputs("</body>\n",index_fp);
+    fputs("</html>\n",index_fp);
+    fclose(index_fp);
+}
 
 /*
 // 根据txt建立链表结构

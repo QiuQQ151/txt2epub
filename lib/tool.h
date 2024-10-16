@@ -18,6 +18,7 @@ typedef struct Article {
 int content_opf_create( struct Article* head, FILE* log );
 int toc_ncx_create( struct Article* head, FILE* log  );
 int chapter_create( struct Article* head, FILE* log );
+int index_create( struct Article* head, FILE* log );
 char* num2char(int num);
 char* read_txt(char* txt_location);  //将txt读入内存中，返回字符数组指针
 struct Article * buil_article_list(char* txt_content );  // 根据txt建立链表结构

@@ -8,6 +8,7 @@
 <meta name="cover" content="cover-image"/>
 </metadata>
 <manifest>
+<item id="index" href="index.html" media-type="application/xhtml+xml"/>
 <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
 <item id="chapter1" href="chapter1.html" media-type="application/xhtml+xml"/>
 <item id="chapter2" href="chapter2.html" media-type="application/xhtml+xml"/>
@@ -132,7 +133,7 @@
 <item id="image97" href="images/97.jpg" media-type="aimage/jpeg"/>
 </manifest>
 <spine toc="ncx">
-<itemref idref="chapter1"/>
+<itemref idref="index"/><itemref idref="chapter1"/>
 <itemref idref="chapter2"/>
 <itemref idref="chapter3"/>
 <itemref idref="chapter4"/>
