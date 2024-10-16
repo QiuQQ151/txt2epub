@@ -13,7 +13,7 @@ cp "lib/mimetype" "epub"
 cp "lib/container.xml" "epub/META-INF/"
 
 # 3 启动转换程序
-# ./txt2epub.exe
+./txt2epub.exe ./新华日报20241015.txt
 
 # 4 文件打包
 cd "epub"

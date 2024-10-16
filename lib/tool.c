@@ -7,13 +7,180 @@
 
 
 
-// // 定义链表节点
+// // 定义链表节点 // 不要重复定义
 // typedef struct Article {
 //     char* num;                 // 文章标号
 //     char* title;               // 存储文章标题
 //     char* content;             // 存储文章内容
 //     struct Article *next;      // 指向下一个节点的指针
 // } Article;
+
+/*
+创建content.opf
+*/
+int content_opf_create( struct Article* head,  FILE* log )
+{    
+    FILE* content_opf_fp;
+    content_opf_fp = fopen("./epub/OEBPS/content.opf","w"); //写入模式打开
+    if( content_opf_fp == NULL ){
+        printf("无法打开content,opf\n");
+        return 1;
+    }
+
+    // 写入metadata
+    fputs("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",content_opf_fp);
+    fputs("<package xmlns=\"http://www.idpf.org/2007/opf\" version=\"2.0\" unique-identifier=\"BookID\"> \n",content_opf_fp);
+    fputs("<metadata xmlns:dc=\"http://purl.org/dc/elements/1.1/\">\n",content_opf_fp);
+    fputs("<dc:title>纯文本电子书</dc:title>\n",content_opf_fp);
+    fputs("<dc:creator>作者姓名</dc:creator>\n",content_opf_fp);
+    fputs("<dc:language>zh</dc:language>\n",content_opf_fp);
+    fputs("<dc:identifier id=\"BookID\">urn:uuid:12345</dc:identifier>\n</metadata>\n",content_opf_fp);
+
+    struct Article* now = head;
+    struct Article* next;
+    // 写入manifest
+    fputs("<manifest>\n<item id=\"ncx\" href=\"toc.ncx\" media-type=\"application/x-dtbncx+xml\"/>\n",content_opf_fp);
+    while( now->next != NULL )
+    {
+       fputs("<item id=\"chapter",content_opf_fp);
+       fputs(now->num,content_opf_fp);
+       fputs("\" href=\"chapter",content_opf_fp);
+       fputs(now->num,content_opf_fp);
+       fputs(".html\" media-type=\"application/xhtml+xml\"/>\n",content_opf_fp);
+       next = now->next;
+       now = next;
+    }
+    fputs("</manifest>\n",content_opf_fp);
+    
+    // 写入spine
+    fputs("<spine toc=\"ncx\">\n",content_opf_fp);
+    now = head;
+    while( now->next != NULL )
+    {
+       fputs("<itemref idref=\"chapter",content_opf_fp);
+       fputs(now->num,content_opf_fp);
+       fputs("\"/>\n",content_opf_fp);
+       next = now->next;
+       now = next;
+    }
+    fputs("</spine>\n</package>\n",content_opf_fp);
+    fclose(content_opf_fp);
+    return 0;
+}
+
+/*
+创建toc.ncx
+*/
+int toc_ncx_create( struct Article* head, FILE* log  )
+{
+    FILE* toc_ncx_fp;
+    toc_ncx_fp = fopen("./epub/OEBPS/toc.ncx","w"); //写入模式打开
+    if( toc_ncx_fp == NULL ){
+        printf("无法打开toc.ncx\n");
+        return 1;
+    }
+    // 写入基本前缀
+    fputs("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",toc_ncx_fp);
+    fputs("<ncx xmlns=\"http://www.daisy.org/z3986/2005/ncx/\" version=\"2005-1\">\n",toc_ncx_fp);
+    fputs("<head>\n",toc_ncx_fp);
+    fputs("<meta name=\"dtb:uid\" content=\"urn:uuid:12345\"/>\n",toc_ncx_fp);
+    fputs("<meta name=\"dtb:depth\" content=\"1\"/>\n",toc_ncx_fp);
+    fputs("<meta name=\"dtb:totalPageCount\" content=\"0\"/>\n",toc_ncx_fp);
+    fputs("<meta name=\"dtb:maxPageNumber\" content=\"0\"/>\n",toc_ncx_fp);
+    fputs("</head>\n",toc_ncx_fp);
+    fputs("<docTitle>\n",toc_ncx_fp);
+    fputs("<text>示例书籍</text>\n",toc_ncx_fp);
+    fputs("</docTitle>\n",toc_ncx_fp);
+    
+    // 写入navMap
+    struct Article* now = head;
+    struct Article* next;
+    fputs("<navMap>\n",toc_ncx_fp);
+    while( now->next != NULL )
+    {
+        fputs("<navPoint id=\"navPoint-",toc_ncx_fp);
+        fputs(now->num,toc_ncx_fp);
+        fputs("\" playOrder=\"",toc_ncx_fp);
+        fputs(now->num,toc_ncx_fp);
+        fputs("\">\n",toc_ncx_fp);
+
+        fputs("<navLabel><text>",toc_ncx_fp);
+        fputs(now->title,toc_ncx_fp);
+        fputs("</text></navLabel>\n",toc_ncx_fp);
+
+        fputs("<content src=\"chapter",toc_ncx_fp);
+        fputs(now->num,toc_ncx_fp);
+        fputs(".html\"/>\n",toc_ncx_fp);
+
+        fputs("</navPoint>\n",toc_ncx_fp);
+
+        next = now->next;
+        now = next;
+    }
+    fputs("</navMap>\n",toc_ncx_fp);
+    fputs("</ncx>\n",toc_ncx_fp);
+    fclose(toc_ncx_fp);
+}
+
+/*
+创建chapter.html
+*/
+int chapter_create( struct Article* head, FILE* log )
+{
+    struct Article* now = head;
+    struct Article* next;
+    
+    // 循环创建chapterx.html
+    while( now->next != NULL )
+    {
+        FILE* chapter_html_fp;
+        char* chapterx = (char*)malloc( sizeof(char)*( 20 + strlen(now->num) + 5 + 1));
+        if( chapterx == NULL ){
+            printf("无法分配chapterx内存\n");
+            return 1;
+        }  
+        *chapterx = '\0';
+        strcat(chapterx,"./epub/OEBPS/chapter");
+        strcat(chapterx,now->num);
+        strcat(chapterx,".html");
+        chapter_html_fp = fopen(chapterx,"w"); //写入模式打开
+        if( chapter_html_fp == NULL ){
+            printf("无法打开chapterx.html\n");
+            return 1;
+        }       
+        
+        // 写入数据
+        fputs("<!DOCTYPE html>\n",chapter_html_fp);
+        fputs("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n",chapter_html_fp);
+        fputs("<head>\n",chapter_html_fp);
+        fputs("<title>",chapter_html_fp);
+        fputs(now->title,chapter_html_fp);
+        fputs("</title>\n",chapter_html_fp);
+        fputs("</head>\n",chapter_html_fp);
+
+        fputs("<body>\n",chapter_html_fp);
+        fputs("<h1>",chapter_html_fp);
+        fputs(now->title,chapter_html_fp);
+        fputs("</h1>\n",chapter_html_fp);
+
+        fputs("<p>",chapter_html_fp);
+        fputs(now->content,chapter_html_fp);
+        fputs("</p>\n",chapter_html_fp);
+        fputs("</body>\n",chapter_html_fp);
+        fputs("</html>\n",chapter_html_fp);
+
+        // 释放资源
+        fclose(chapter_html_fp);
+
+        next = now->next;
+        now = next; 
+    } 
+     return 0;
+
+}
+
+
+
 
 /*
 // 根据txt建立链表结构
@@ -44,9 +211,9 @@ struct Article * buil_article_list(char* txt_content )
     char* tiltle_right  ;
     char* content_left  ;
     char* content_right ;
-    
+    char* article_num;
     // 开始建立链表
-    int i = 41;
+    int i = 1;
     while( 1 )
     {  
        // 标题右侧地址更新
@@ -81,8 +248,22 @@ struct Article * buil_article_list(char* txt_content )
             return NULL ;  // 错误返回
         }      
        
-   
-       // 写入链表  //注意强制改为'\0'会导致的提前结束问题
+       // 写入文章标号
+       article_num = num2char( i++ );
+       now->num = (char*)malloc( sizeof(char)*( sizeof(article_num ) + 1 ) );
+       if( now->num == NULL ){
+            // 撤销当前节点
+            pass->next = NULL; // 切断连接
+            now = pass;
+            free(next); // 释放资源
+            printf("内存分配失败，链表创建结束\n");
+            return NULL ;  // 错误返回
+       }
+       now->num[0] = '\0';
+       strcat(now->num, article_num);
+       //printf("文章标号:%s\n",now->num);
+
+       // 写入标题信息  //注意强制改为'\0'会导致的提前结束问题
        now->title = (char*)malloc( sizeof(char)*(tiltle_right - tiltle_left +1) );
        if( now->title == NULL ){
             // 撤销当前节点
@@ -96,7 +277,8 @@ struct Article * buil_article_list(char* txt_content )
        *(tiltle_right) = '\0'; //修改方便字符串复制
        strcat(now->title, tiltle_left );
        //printf("标题:%s\n",now->title);
-
+       
+       //写入正文信息
        now->content = (char*)malloc( sizeof(char)*(content_right - content_left +1) );
        if( now->content == NULL ){
             // 撤销当前节点
@@ -200,7 +382,23 @@ char* read_txt( char* txt_location )
     
     
 
-
+/*
+整数转化为字符串
+*/
+// 整数转化为字符串的函数
+char* num2char(int num) {
+    // 计算所需的字符串长度（包括符号和'\0'结尾符）
+    int length = snprintf(NULL, 0, "%d", num) + 1;
+    // 动态分配内存以存储字符串
+    char* str = (char*)malloc(length);
+    if (str == NULL) {
+        perror("内存分配失败\n");
+        return NULL;
+    }
+    // 将整数转换为字符串并存入str
+    snprintf(str, length, "%d", num);
+    return str;  // 返回指向字符串的指针
+}
 
 
 
